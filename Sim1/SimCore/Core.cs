@@ -9,12 +9,12 @@ namespace SimCore
         private ManualResetEvent _mrse;
         private Thread _thread;
         public int ReplicationCount { get; }
-        private Action<int> _repFunc;
+        private Action<CoreArgs> _repFunc;
 
         public delegate void EvntHandler(object sender, CoreArgs e);
         public event EvntHandler OnEndEachReplication;
 
-        public Core(int repCount, Action<int> monteCarloFunc)
+        public Core(int repCount, Action<CoreArgs> monteCarloFunc)
         {
             ReplicationCount = repCount;
             _repFunc = monteCarloFunc;
@@ -46,8 +46,9 @@ namespace SimCore
         {
             for (int i = 0; i < ReplicationCount; i++)
             {
-                _repFunc(i);
-                OnEndEachReplication?.Invoke(this, new CoreArgs(i));
+                var arg = new CoreArgs(i);
+                _repFunc(arg);
+                OnEndEachReplication?.Invoke(this, arg);
                 _mrse.WaitOne();
             }
         }
@@ -58,6 +59,8 @@ namespace SimCore
 public class CoreArgs : EventArgs
 {
     public int Iteration { get; }
+
+    public bool Successful { get; set; }
 
     public CoreArgs(int interation)
     {

@@ -32,22 +32,22 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDoors = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRep = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtDoors
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "3";
+            this.txtDoors.Location = new System.Drawing.Point(95, 15);
+            this.txtDoors.Name = "txtDoors";
+            this.txtDoors.Size = new System.Drawing.Size(100, 20);
+            this.txtDoors.TabIndex = 0;
+            this.txtDoors.Text = "3";
             // 
             // label1
             // 
@@ -77,13 +77,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Počet replikácií";
             // 
-            // textBox2
+            // txtRep
             // 
-            this.textBox2.Location = new System.Drawing.Point(95, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "100000";
+            this.txtRep.Location = new System.Drawing.Point(95, 41);
+            this.txtRep.Name = "txtRep";
+            this.txtRep.Size = new System.Drawing.Size(100, 20);
+            this.txtRep.TabIndex = 3;
+            this.txtRep.Text = "100000";
             // 
             // chart1
             // 
@@ -115,10 +115,10 @@
             this.ClientSize = new System.Drawing.Size(757, 510);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtRep);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDoors);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -129,11 +129,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDoors;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRep;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

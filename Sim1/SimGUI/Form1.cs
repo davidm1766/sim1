@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,12 @@ namespace SimGUI
 {
     public partial class Form1 : Form
     {
+        private MainLog _log;
+
         public Form1()
         {
             InitializeComponent();
+            
             chart1.Series["Series2"].XValueType = ChartValueType.Int32;
             chart1.Series["Series1"].XValueType = ChartValueType.Int32;
             chart1.Series["Series1"].ChartType = SeriesChartType.Line;
@@ -30,9 +34,19 @@ namespace SimGUI
         }
         int last = 0;
         private void button1_Click(object sender, EventArgs e)
-        {            
-            chart1.Series["Series1"].Points.AddXY(last,new Random().Next(199));
-            chart1.Series["Series2"].Points.AddXY(last++, new Random().Next(199));
+        {
+            try
+            {
+                int doors = int.Parse(txtDoors.Text);
+                int rep = int.Parse(txtRep.Text);
+
+                _log = new MainLog(doors,rep);
+                chart1.Series["Series1"].Points.AddXY(last, new Random().Next(199));
+                chart1.Series["Series2"].Points.AddXY(last++, new Random().Next(199));
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
