@@ -84,6 +84,10 @@
       <Project>{34AD67F5-C172-414E-8F88-ECA8317E8F4E}</Project>
       <Name>SimLog</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SimShared\SimShared.csproj">
+      <Project>{60F60C4B-7175-4336-B220-56C48EFBC13A}</Project>
+      <Name>SimShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

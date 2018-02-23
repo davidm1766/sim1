@@ -1,6 +1,7 @@
-﻿using System;
+﻿using SimShared;
+using System;
 using System.Threading;
-
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SimCore
 {
@@ -48,6 +49,7 @@ namespace SimCore
             {
                 var arg = new CoreArgs(i);
                 _repFunc(arg);
+                Thread.Sleep(500);
                 OnEndEachReplication?.Invoke(this, arg);
                 _mrse.WaitOne();
             }
@@ -55,15 +57,4 @@ namespace SimCore
 
     }
 
-}
-public class CoreArgs : EventArgs
-{
-    public int Iteration { get; }
-
-    public bool Successful { get; set; }
-
-    public CoreArgs(int interation)
-    {
-        Iteration = interation;
-    }
 }

@@ -43,5 +43,11 @@
     <Compile Include="Core.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimShared\SimShared.csproj">
+      <Project>{60F60C4B-7175-4336-B220-56C48EFBC13A}</Project>
+      <Name>SimShared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34AD67F5-C172-414E-8F88-ECA8317E8F4E}</ProjectGuid>
+    <ProjectGuid>{60F60C4B-7175-4336-B220-56C48EFBC13A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimLog</RootNamespace>
-    <AssemblyName>SimLog</AssemblyName>
+    <RootNamespace>SimShared</RootNamespace>
+    <AssemblyName>SimShared</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,18 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainLog.cs" />
+    <Compile Include="SharedItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SimCore\SimCore.csproj">
-      <Project>{86AA03BE-6829-4E1E-9C9F-FEF46B623305}</Project>
-      <Name>SimCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimShared\SimShared.csproj">
-      <Project>{60F60C4B-7175-4336-B220-56C48EFBC13A}</Project>
-      <Name>SimShared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
