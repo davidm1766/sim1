@@ -25,8 +25,8 @@ namespace SimGUI
             btnStop.Enabled = false;
             BtnCont.Enabled = false;
 
-            chart1.Series["Series2"].LegendText = "So zmenou";
-            chart1.Series["Series1"].LegendText = "Bez zmeny";
+            chart1.Series["Series1"].LegendText = "So zmenou";
+            chart1.Series["Series2"].LegendText = "Bez zmeny";
 
             chart1.Series["Series2"].XValueType = ChartValueType.Int32;
             chart1.Series["Series1"].XValueType = ChartValueType.Int32;

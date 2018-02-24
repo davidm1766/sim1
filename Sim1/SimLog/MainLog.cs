@@ -21,9 +21,17 @@ namespace SimLog
 
         private int _doors;
         private int _rep;
+
+        private Random _seed;
+        private Random _dSelRnd;
+        private Random _dCarRnd;
+
+        private Random _cCarRnd;
+        private Random _cSel1Rnd;
+        private Random _cOpenRnd;
+        private Random _cSel2Rnd;
         
-        private Random _dRnd;
-        private Random _cRnd;
+
 
         private int _succesAllNotChange;
         private int _succesAllChange;
@@ -32,8 +40,15 @@ namespace SimLog
             if (doors < 3) {
                 throw new ArgumentException("Počet dverí musí byť väčši ako 3!");
             }
-            _dRnd = new Random();
-            _cRnd = new Random();
+            _seed = new Random();
+            _dSelRnd = new Random(_seed.Next());
+            _dCarRnd = new Random(_seed.Next());
+
+            _cCarRnd = new Random(_seed.Next());
+            _cSel1Rnd = new Random(_seed.Next()); 
+            _cOpenRnd = new Random(_seed.Next()); 
+            _cSel2Rnd = new Random(_seed.Next()); 
+
             _succesAllChange = 0;
             _succesAllNotChange = 0;
                         
@@ -63,8 +78,9 @@ namespace SimLog
 
         private void DontChangeDecision(CoreArgs arg)
         {
-            var carIdx = _dRnd.Next(_doors);
-            var selectIdx = _dRnd.Next(_doors);
+            var carIdx = _dCarRnd.Next(_doors);
+            var selectIdx = _dSelRnd.Next(_doors);
+
             if (carIdx == selectIdx)
             {
                 arg.Successful = true;
@@ -77,10 +93,10 @@ namespace SimLog
 
         private void ChangedDecision(CoreArgs arg)
         {
-            var carIdx = _cRnd.Next(_doors);
-            var sel1Idx = _cRnd.Next(_doors);
-            var openIdx = _cRnd.Next(_doors - 2);
-            var sel2Idx = _cRnd.Next(_doors - 2);
+            var carIdx = _cCarRnd.Next(_doors);
+            var sel1Idx = _cSel1Rnd.Next(_doors);
+            var openIdx = _cOpenRnd.Next(_doors - 2);
+            var sel2Idx = _cSel2Rnd.Next(_doors - 2);
 
             // otvorim dvere kde nie je auto a zaroven ktore neotvoril sutaziaci
             openIdx = (Math.Min(carIdx,sel1Idx) <= openIdx) ? (openIdx + 1) : openIdx;

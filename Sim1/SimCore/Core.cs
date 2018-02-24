@@ -23,7 +23,6 @@ namespace SimCore
             _repFunc = monteCarloFunc;
             _mrse = new ManualResetEvent(initialState: true);
             _thread = new Thread(new ThreadStart(DoReplicationWrapper));
-            _thread.Priority = ThreadPriority.BelowNormal;
         }
 
         public void Stop()
