@@ -60,9 +60,10 @@ namespace SimGUI
                 _log.Start();
 
                 btnStart.Enabled = false;
+                BtnCont.Enabled = false;
                 btnPause.Enabled = true;
                 btnStop.Enabled = true;
-                BtnCont.Enabled = true;
+                
 
             }
             catch (Exception ex) {
@@ -128,12 +129,14 @@ namespace SimGUI
         private void btnPause_Click(object sender, EventArgs e)
         {
             btnPause.Enabled = false;
+            BtnCont.Enabled = true;
             _log?.Pause();
         }
 
         private void BtnCont_Click(object sender, EventArgs e)
         {
             btnPause.Enabled = true;
+            BtnCont.Enabled = false;
             _log?.Continue();
         }
     }
